@@ -1,0 +1,14 @@
+{
+  "name": "ship-or-skip",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ask colleagues whether a feature should be built: five scores in, one ship-or-skip call out.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}

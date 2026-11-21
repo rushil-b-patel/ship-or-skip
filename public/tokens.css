@@ -1,0 +1,58 @@
+/* Specimen theme. Locked by design.md: change the system there first. */
+:root {
+  --color-paper:      oklch(96% 0.018 80);
+  --color-paper-2:    oklch(93% 0.020 80);
+  --color-paper-3:    oklch(89% 0.022 75);
+  --color-field:      oklch(98.5% 0.008 80);
+  --color-rule:       oklch(82% 0.014 75);
+  --color-rule-2:     oklch(56% 0.012 70);   /* control borders: darker than Specimen's 70 % so fields clear 3:1 */
+  --color-muted:      oklch(50% 0.012 65);
+  --color-neutral:    oklch(38% 0.014 60);
+  --color-ink-2:      oklch(26% 0.014 60);
+  --color-ink:        oklch(18% 0.014 60);
+  --color-accent:     oklch(64.6% 0.222 38); /* marks only, never text */
+  --color-accent-ink: oklch(50% 0.19 35);    /* text, focus and fills (~5:1 on paper) */
+  --color-focus:      oklch(50% 0.19 35);
+  --color-error:      oklch(47% 0.18 20);
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body:    "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-figure:  "Geist Mono", ui-monospace, monospace; /* rating figures only */
+  --display-weight: 340;
+
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-md:   1.125rem;
+  --text-lg:   1.375rem;
+  --text-xl:   1.75rem;
+  --text-display-s: clamp(2rem, 3vw + 1rem, 3rem);
+  --text-display:   clamp(3rem, 5.5vw + 1rem, 5.5rem);
+
+  --lh-tight:  1.02;
+  --lh-snug:   1.18;
+  --lh-normal: 1.5;
+
+  --tracking-display: -0.025em;
+  --tracking-tight:   -0.01em;
+
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6.5rem;
+
+  --page-max:    76rem;
+  --page-gutter: clamp(1.25rem, 4vw, 3rem);
+  --measure:     62ch;
+  --control-h:   2.75rem;
+
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:     cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+
+  --z-raised: 10;
+}
