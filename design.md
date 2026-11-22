@@ -18,7 +18,7 @@ Editorial, quiet. The app is an instrument, not a marketing site.
 - `--color-ink`        oklch(18% 0.014 60)
 - `--color-rule`       oklch(82% 0.014 75) hairlines
 - `--color-rule-2`     oklch(56% 0.012 70) control borders (≥ 3:1)
-- `--color-accent`     oklch(64.6% 0.222 38) signal orange: marks only (wordmark square), never text
+- `--color-accent`     oklch(64.6% 0.222 38) signal orange: marks only (the logo's sun), never text
 - `--color-accent-ink` oklch(50% 0.19 35) orange for text, focus and button-hover fill (~5:1 on paper)
 
 Accent stays under ~3 % of any view: wordmark mark, question numbers, the “Ship it.” call, focus, hovers.
@@ -52,9 +52,10 @@ Accent stays under ~3 % of any view: wordmark mark, question numbers, the “Shi
 - Home tabs (Pending / Responded / Yours): text links, muted until current; the current tab takes a 2px ink underline that sits on the ledger's ink rule. Counts in Geist Mono.
 - Ballot: each question has a separate “Not sure” cell under the ruler, in Geist at text-sm. It isn't a point on the scale.
 - No eyebrows or section numbers. Question numbers are ordinal content, not decoration.
+- Logo (`public/icon.svg`), used as the favicon and as the wordmark mark at 1.5em: on a transparent background, a paper boat sails in front of an orange circle sun. The circle is the one exception to radius 0, because it's an illustration rather than UI. The boat is flat facets in paper, with its shaded sail side in rule, and a 1-unit ink outline only where the hull sits outside the sun, so it stays visible on paper. The touch icon sits on paper, because iOS fills transparency with black. Its hex values mirror the tokens, so update it when the palette changes, then re-export `favicon.ico` (32px) and `apple-touch-icon.png` (180px).
 
 ## What pages MUST share
-Wordmark with orange square, Fraunces/Geist/Geist Mono roles, accent placement, square CTAs, hairline divider language, N1a nav, Ft1 footer.
+Wordmark with the boat logo, Fraunces/Geist/Geist Mono roles, accent placement, square CTAs, hairline divider language, N1a nav, Ft1 footer.
 
 ## Exports
 

@@ -47,7 +47,7 @@ Step-by-step guide for Google Cloud's free tier: [DEPLOY.md](DEPLOY.md).
 
 ```
 server.js         routes, database and HTML views
-public/           tokens.css (design tokens), app.css, app.js (copy buttons, submit spinner)
+public/           tokens.css (design tokens), app.css, app.js (copy buttons, submit spinner), icon.svg and its PNG/ICO fallbacks
 test.js           end-to-end checks against an in-memory database
 design.md         the locked design system: read it before changing styles
 deploy/           systemd service and nightly backup script used by DEPLOY.md

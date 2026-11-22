@@ -116,10 +116,17 @@ async function readForm(req) {
 // ---------- static assets ----------
 
 const STATIC = {};
-for (const [file, type] of [['tokens.css', 'text/css'], ['app.css', 'text/css'], ['app.js', 'text/javascript']]) {
+for (const [file, type] of [
+  ['tokens.css', 'text/css; charset=utf-8'],
+  ['app.css', 'text/css; charset=utf-8'],
+  ['app.js', 'text/javascript; charset=utf-8'],
+  ['icon.svg', 'image/svg+xml'],
+  ['favicon.ico', 'image/x-icon'],
+  ['apple-touch-icon.png', 'image/png'],
+]) {
   const body = fs.readFileSync(path.join(__dirname, 'public', file));
   const version = crypto.createHash('sha256').update(body).digest('hex').slice(0, 10);
-  STATIC['/' + file] = { body, version, type: `${type}; charset=utf-8` };
+  STATIC['/' + file] = { body, version, type };
 }
 const asset = file => `/${file}?v=${STATIC['/' + file].version}`;
 
@@ -131,6 +138,9 @@ const layout = (title, body) => `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${title ? `${esc(title)} · ` : ''}Ship or Skip</title>
+<link rel="icon" href="${asset('favicon.ico')}" sizes="32x32">
+<link rel="icon" href="${asset('icon.svg')}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="${asset('apple-touch-icon.png')}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Geist:wght@400;600&family=Geist+Mono:wght@400;500&display=swap">
@@ -140,7 +150,7 @@ const layout = (title, body) => `<!doctype html>
 </head>
 <body>
 <header class="nav">
-  <a class="wordmark" href="/"><span class="wordmark__mark" aria-hidden="true"></span>Ship or Skip</a>
+  <a class="wordmark" href="/"><img class="wordmark__mark" src="${asset('icon.svg')}" alt="">Ship or Skip</a>
   <nav class="nav__links" aria-label="Primary">
     <a class="nav__link" href="/">Proposals</a>
     <a class="btn btn--outline" href="/new">New proposal</a>
@@ -148,7 +158,7 @@ const layout = (title, body) => `<!doctype html>
 </header>
 <main class="page">${body}</main>
 <footer class="foot">
-  <p class="wordmark"><span class="wordmark__mark" aria-hidden="true"></span>Ship or Skip</p>
+  <p class="wordmark"><img class="wordmark__mark" src="${asset('icon.svg')}" alt="">Ship or Skip</p>
   <p class="foot__note">Answers are anonymous: the asker sees only the combined result. One response per person.</p>
 </footer>
 </body>

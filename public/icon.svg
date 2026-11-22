@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- A paper boat (an idea on paper) setting sail in front of an orange sun. The ink outline shows only outside the sun, so the white boat stays visible on light backgrounds. Hex mirrors tokens.css (accent, paper, rule, ink). -->
+  <defs>
+    <mask id="outside-sun">
+      <rect width="32" height="32" fill="#fff"/>
+      <circle cx="16" cy="14" r="10" fill="#000"/>
+    </mask>
+  </defs>
+  <circle cx="16" cy="14" r="10" fill="#f64700"/>
+  <path d="M10 22 16 9v13z" fill="#f8f1e5"/>
+  <path d="M16 9l6 13h-6z" fill="#cac3ba"/>
+  <path d="M3 21h26l-5 7H8z" fill="#f8f1e5"/>
+  <path d="M3 21h26l-5 7H8z" fill="none" stroke="#16100b" stroke-width="1" mask="url(#outside-sun)"/>
+</svg>
