@@ -130,7 +130,7 @@ const layout = (title, body) => `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(title)} · Ship or Skip</title>
+<title>${title ? `${esc(title)} · ` : ''}Ship or Skip</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Geist:wght@400;600&family=Geist+Mono:wght@400;500&display=swap">
@@ -198,7 +198,7 @@ function indexPage(voter, params) {
   const q = (params.get('q') || '').trim().slice(0, LIMIT.search);
   const rows = sql.search.all(likePattern(q));
   if (!rows.length && !q) {
-    return layout('Proposals', notice('No proposals yet.', 'A proposal is a feature someone wants a ship-or-skip read on before it gets built.', proposeButton));
+    return layout('', notice('No proposals yet.', 'A proposal is a feature someone wants a ship-or-skip read on before it gets built.', proposeButton));
   }
 
   const answered = new Set(sql.answeredBy.all(voter).map(r => r.proposal_id));
@@ -232,7 +232,7 @@ function indexPage(voter, params) {
     : notice('You haven’t asked anything from this browser.',
       'Proposals you create here show up in this tab. Asked from another browser? Its private results link still works.', proposeButton);
 
-  return layout('Proposals', `
+  return layout('', `
   <section class="intro">
     <h1 class="intro__title">Features waiting on a ship-or-skip call.</h1>
     <p class="intro__text">Pick one and score it on five questions. About a minute. Answers are anonymous: the person who asked sees only the combined result.</p>

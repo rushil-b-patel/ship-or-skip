@@ -36,6 +36,8 @@ npm test
 
 ## Deploying
 
+Step-by-step guide for Google Cloud's free tier: [DEPLOY.md](DEPLOY.md).
+
 - **Hosting:** it needs one long-running Node process and a persistent disk for the SQLite file. Serverless hosts (Vercel, Netlify, Lambda) won't work.
 - **Access:** there is no login, so keep it off the open internet. Put it behind your VPN or an access gate (Cloudflare Access, Tailscale), and set `EMAIL_DOMAIN`.
 - **HTTPS:** serve it through a reverse proxy that sets `X-Forwarded-Proto: https`. The app then marks its cookie `Secure`.
@@ -48,4 +50,5 @@ server.js         routes, database and HTML views
 public/           tokens.css (design tokens), app.css, app.js (copy buttons, submit spinner)
 test.js           end-to-end checks against an in-memory database
 design.md         the locked design system: read it before changing styles
+deploy/           systemd service and nightly backup script used by DEPLOY.md
 ```
