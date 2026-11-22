@@ -1,0 +1,25 @@
+[Unit]
+Description=Ship or Skip
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=shiporskip
+WorkingDirectory=/opt/ship-or-skip
+ExecStart=/usr/bin/node server.js
+Environment=PORT=3000
+Environment=DB=/var/lib/ship-or-skip/ship-or-skip.db
+# EMAIL_DOMAIN and BASE_URL live here, so updating the app never overwrites them.
+EnvironmentFile=-/etc/ship-or-skip.env
+Restart=on-failure
+RestartSec=2
+
+# Creates /var/lib/ship-or-skip owned by the service user; the rest of the system is read-only to the app.
+StateDirectory=ship-or-skip
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
